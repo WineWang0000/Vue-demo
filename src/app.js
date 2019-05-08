@@ -13,7 +13,8 @@ new Vue({
     loading3: false,
   }
 })
-
+import chai from 'chai'
+const expect = chai.expect
 {
   const Constructor = Vue.extend(Button)
   const button = new Constructor({
