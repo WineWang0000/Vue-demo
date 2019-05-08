@@ -13,3 +13,15 @@ new Vue({
     loading3: false,
   }
 })
+
+{
+  const Constructor = Vue.extend(Button)
+  const button = new Constructor({
+    propsData:{
+      icon:'setting'
+    }
+  })
+  button.$mount('#test')
+  let useEle = button.$el.querySelector('use')
+  expect(useEle.getAttribute('xlink:href')).to.eq('#icon-setting')
+}
