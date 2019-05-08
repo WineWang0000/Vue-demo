@@ -1,0 +1,23 @@
+{
+  "name": "vue",
+  "version": "0.0.1",
+  "description": "This is",
+  "main": "\u001ba UI framework\u001b[B\u001b[B",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WineWang0000/Vue-demo.git"
+  },
+  "keywords": [
+    "UI，",
+    "Vue"
+  ],
+  "author": "WineWang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WineWang0000/Vue-demo/issues"
+  },
+  "homepage": "https://github.com/WineWang0000/Vue-demo#readme"
+}
