@@ -26,3 +26,15 @@ const expect = chai.expect
   let useEle = button.$el.querySelector('use')
   expect(useEle.getAttribute('xlink:href')).to.eq('#icon-setting')
 }
+{
+  const Constructor = Vue.extend(Button)
+  const button = new Constructor({
+    propsData:{
+      icon:'setting',
+      loading: true
+    }
+  })
+  button.$mount()
+  let useEle = button.$el.querySelector('use')
+  expect(useEle.getAttribute('xlink:href')).to.eq('#icon-loading')
+}
