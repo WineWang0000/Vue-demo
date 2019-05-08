@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "Vue",
   "version": "0.0.1",
   "description": "This is",
   "main": "\u001ba UI framework\u001b[B\u001b[B",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/WineWang0000/Vue-demo/issues"
   },
-  "homepage": "https://github.com/WineWang0000/Vue-demo#readme"
+  "homepage": "https://github.com/WineWang0000/Vue-demo#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
