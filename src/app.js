@@ -25,6 +25,8 @@ const expect = chai.expect
   button.$mount('#test')
   let useEle = button.$el.querySelector('use')
   expect(useEle.getAttribute('xlink:href')).to.eq('#icon-setting')
+  button.$el.remove()
+  button.$destroy()
 }
 {
   const Constructor = Vue.extend(Button)
@@ -37,6 +39,8 @@ const expect = chai.expect
   button.$mount()
   let useEle = button.$el.querySelector('use')
   expect(useEle.getAttribute('xlink:href')).to.eq('#icon-loading')
+  button.$el.remove()
+  button.$destroy()
 }
 {
   const div = document.createElement('div')
@@ -51,4 +55,23 @@ const expect = chai.expect
   let svg = button.$el.querySelector('svg')
   let {order} = window.getComputedStyle(svg)
   expect(order).to.eq('1')
+  button.$el.remove()
+  button.$destroy()
+}
+{
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+  const Constructor = Vue.extend(Button)
+  const button = new Constructor({
+    propsData:{
+      icon:'setting',
+      iconPosition: 'right'
+    }
+  })
+  button.$mount(div)
+  let svg = button.$el.querySelector('svg')
+  let {order} = window.getComputedStyle(svg)
+  expect(order).to.eq('2')
+  button.$el.remove()
+  button.$destroy()
 }
