@@ -7,7 +7,8 @@
   export default{
     mounted(){
       for(let node of this.$el.children){
-        if(node.name.toLowerCase() !== 'button'){
+        let name = node.nodeName.toLowerCase()
+        if(name !== 'button'){
           console.warn(`g-button-group的子元素应该是g-button，但你写的是 ${name}`)
         }
       }
