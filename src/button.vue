@@ -1,18 +1,20 @@
 <template>
-    <button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
-      <svg v-if="icon" class="icon">
-        <use :xlink:href=`#icon-${icon}`>
-        </use>
-      </svg>
-      <div class="content">
-        <slot></slot>
-      </div>
-    </button>
+  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
+    <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
+    <g-icon class="loading icon"  v-if="loading" name="loading"></g-icon>
+    <div class="content">
+      <slot></slot>
+    </div>
+  </button>
 </template>
 <script>
   export default{
     props:{
       icon:{},
+      loading:{
+        type: Boolean,
+        default: false
+      },
       iconPosition:{
         type: String,
         default: 'left',
@@ -33,11 +35,19 @@
     justify-content: center;
     align-items: center;
     &:hover{border-color:var(--border-color-hover);}
+    &:focus{outline: none;}
     > .icon{order:1;}
     > .content{order: 2;}
     &.icon-right{
       > .icon{order:2;}
       > .content{order:1;}
     }
+  }
+  @keyframes x{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+  }
+  .loading{
+    animation: x 2s infinite linear;
   }
 </style>

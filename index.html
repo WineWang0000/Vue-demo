@@ -8,30 +8,21 @@
   <title>Vue-demo</title>
   <style>
     :root{
+      --height: 32px;
       --font-size: 16px;
       --button-border-radius: 4px;
       --border-color-hover: #ffffff;
     }
   </style>
-  <style>
-    .g-button{
-      font-size: var(--font-size);
-      padding: 0 1em;
-      border-radius:var(--button-border-radius);
-    }
-    .g-button:hover{border-color:var(--border-color-hover);}
-  </style>
 </head>
 <body>
 <div id="app">
-  <g-button></g-button>
+  <g-button :loading="true">按钮</g-button>
+  <g-button :loading="true" icon="setting">按钮</g-button>
+  <g-button icon="setting" icon-position="right">按钮</g-button>
+  <g-icon name="download"></g-icon>
 </div>
-<script src="node_modules/vue/dist/vue.min.js"></script>
-<script src="button.js"></script>
-<script>
-  new Vue({
-    el: '#app',
-  })
-</script>
+<script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1176732_odh1pyrixy.js"></script>
 </body>
 </html>
