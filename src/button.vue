@@ -35,7 +35,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    &:hover{border-color:var(--border-color-hover);}
+    vertical-align: middle;
     &:focus{outline: none;}
     > .icon{order:1;}
     > .content{order: 2;}
