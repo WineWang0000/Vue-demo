@@ -19,63 +19,63 @@ chai.use(spies)
 const expect = chai.expect
 {
   const Constructor = Vue.extend(Button)
-  const button = new Constructor({
+  const vm = new Constructor({
     propsData:{
       icon:'setting'
     }
   })
-  button.$mount('#test')
-  let useEle = button.$el.querySelector('use')
+  vm.$mount('#test')
+  let useEle = vm.$el.querySelector('use')
   expect(useEle.getAttribute('xlink:href')).to.eq('#icon-setting')
-  button.$el.remove()
-  button.$destroy()
+  vm.$el.remove()
+  vm.$destroy()
 }
 {
   const Constructor = Vue.extend(Button)
-  const button = new Constructor({
+  const vm = new Constructor({
     propsData:{
       icon:'setting',
       loading: true
     }
   })
-  button.$mount()
-  let useEle = button.$el.querySelector('use')
+  vm.$mount()
+  let useEle = vm.$el.querySelector('use')
   expect(useEle.getAttribute('xlink:href')).to.eq('#icon-loading')
-  button.$el.remove()
-  button.$destroy()
+  vm.$el.remove()
+  vm.$destroy()
 }
 {
   const div = document.createElement('div')
   document.body.appendChild(div)
   const Constructor = Vue.extend(Button)
-  const button = new Constructor({
+  const vm = new Constructor({
     propsData:{
       icon:'setting'
     }
   })
-  button.$mount(div)
-  let svg = button.$el.querySelector('svg')
+  vm.$mount(div)
+  let svg = vm.$el.querySelector('svg')
   let {order} = window.getComputedStyle(svg)
   expect(order).to.eq('1')
-  button.$el.remove()
-  button.$destroy()
+  vm.$el.remove()
+  vm.$destroy()
 }
 {
   const div = document.createElement('div')
   document.body.appendChild(div)
   const Constructor = Vue.extend(Button)
-  const button = new Constructor({
+  const vm = new Constructor({
     propsData:{
       icon:'setting',
       iconPosition: 'right'
     }
   })
-  button.$mount(div)
-  let svg = button.$el.querySelector('svg')
+  vm.$mount(div)
+  let svg = vm.$el.querySelector('svg')
   let {order} = window.getComputedStyle(svg)
   expect(order).to.eq('2')
-  button.$el.remove()
-  button.$destroy()
+  vm.$el.remove()
+  vm.$destroy()
 }
 {
   const Constructor = Vue.extend(Button)
