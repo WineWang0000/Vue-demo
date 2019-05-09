@@ -44,5 +44,9 @@
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yourgitprojectgiturl.git@github.com:WineWang0000/Vue-demo.git"
   }
 }
