@@ -9,13 +9,37 @@ describe('Button', () => {
   it('存在.', () => {
     expect(Button).to.be.ok
   })
+  it('可以设置icon.', () => {
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+      propsData: {
+        icon: 'setting'
+      }
+    }).$mount()
+    const useElement = vm.$el.querySelector('use')
+    expect(useElement.getAttribute('xlink:href')).to.equal('#icon-setting')
+    vm.$destroy()
+  })
+  it('可以设置loading.', () => {
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+      propsData: {
+        icon: 'setting',
+        loading: true
+      }
+    }).$mount()
+    const useElements = vm.$el.querySelectorAll('use')
+    expect(useElements.length).to.equal(1)
+    expect(useElements[0].getAttribute('xlink:href')).to.equal('#icon-loading')
+    vm.$destroy()
+  })
   it('icon 默认的 order 是 1', () => {
     const div = document.createElement('div')
     document.body.appendChild(div)
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        icon: 'setting',
       }
     }).$mount(div)
     const icon = vm.$el.querySelector('svg')
@@ -29,7 +53,7 @@ describe('Button', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        icon: 'setting',
         iconPosition: 'right'
       }
     }).$mount(div)
@@ -42,7 +66,7 @@ describe('Button', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
       propsData: {
-        icon: 'settings',
+        icon: 'setting',
       }
     }).$mount()
 
