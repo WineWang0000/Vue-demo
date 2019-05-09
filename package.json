@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WineWang0000/Vue-demo.git"
+    "url": "git+ssh://git@github.com/WineWang0000/Vue-demo.git"
   },
   "keywords": [
     "UI，",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/WineWang0000/Vue-demo#readme",
   "dependencies": {
+    "formidable": "^1.2.1",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },
@@ -44,9 +45,5 @@
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "yourgitprojectgiturl.git@github.com:WineWang0000/Vue-demo.git"
   }
 }
