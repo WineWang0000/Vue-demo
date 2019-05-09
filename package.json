@@ -1,6 +1,6 @@
 {
-  "name": "winewang0000",
-  "version": "0.0.2",
+  "name": "winewang",
+  "version": "0.0.5",
   "description": "This is",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,8 @@
   "dependencies": {
     "formidable": "^1.2.1",
     "vue": "^2.6.10",
-    "vue-hot-reload-api": "^2.3.3"
+    "vue-hot-reload-api": "^2.3.3",
+    "winewang0000": "0.0.3"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
