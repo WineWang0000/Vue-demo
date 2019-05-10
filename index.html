@@ -16,16 +16,22 @@
 </head>
 <body>
 <div id="app">
-  <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>
-  <g-button :loading="loading2" @click="loading2 = !loading2" icon="setting">按钮</g-button>
-  <g-button :loading="loading3" @click="loading3 = !loading3" icon="setting" icon-position="right">按钮</g-button>
-  <g-button-group>
-    <g-button icon="left">上一页</g-button>
-    <g-button icon="right" icon-position="right">下一页</g-button>
-  </g-button-group>
+  <g-input value="张三" disabled></g-input>
+  <g-input value="李四" readonly></g-input>
+  <g-input value="素素"></g-input>
+  <g-input value="马" error="名字不能少于两个字"></g-input>
+  <div style="margin:20px;">
+    <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>
+    <g-button :loading="loading2" @click="loading2 = !loading2" icon="setting">按钮</g-button>
+    <g-button :loading="loading3" @click="loading3 = !loading3" icon="setting" icon-position="right">按钮</g-button>
+    <g-button-group>
+      <g-button icon="left">上一页</g-button>
+      <g-button icon="right" icon-position="right">下一页</g-button>
+    </g-button-group>
+  </div>
   <div id="test"></div>
 </div>
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_1176732_odh1pyrixy.js"></script>
+<script src="//at.alicdn.com/t/font_1176732_0utw48jgfgb.js"></script>
 </body>
 </html>
