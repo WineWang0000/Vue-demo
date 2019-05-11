@@ -54,4 +54,20 @@ describe('Input', () => {
       expect(errorMessage.innerText).to.eq('你错了')
     })
   })
+  describe('事件', ()=>{
+    const Constructor = Vue.extend(Input)
+    let vm
+    afterEach(()=>{
+      vm.$destroy()
+    })
+    it('支持 change 事件', ()=>{
+      vm = new Constructor({}).$mount()
+        const callback = sinon.fake()
+        vm.$on('change', callback)
+        let event = new Event('change')
+        let inputEle = vm.$el.querySelector('input')
+        inputEle.dispatchEvent(event)
+        expect(callback).to.have.been.called
+    })
+  })
 })
