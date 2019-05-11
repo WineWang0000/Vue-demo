@@ -68,6 +68,34 @@ describe('Input', () => {
         let inputEle = vm.$el.querySelector('input')
         inputEle.dispatchEvent(event)
         expect(callback).to.have.been.called
+        // expect(callback).to.have.been.callWith(event) 测change事件的第一次个传参数。
+    })
+    it('支持 input 事件', ()=>{
+      vm = new Constructor({}).$mount()
+      const callback = sinon.fake()
+      vm.$on('input', callback)
+      let event = new Event('input')
+      let inputEle = vm.$el.querySelector('input')
+      inputEle.dispatchEvent(event)
+      expect(callback).to.have.been.called
+    })
+    it('支持 focus 事件', ()=>{
+      vm = new Constructor({}).$mount()
+      const callback = sinon.fake()
+      vm.$on('focus', callback)
+      let event = new Event('focus')
+      let inputEle = vm.$el.querySelector('input')
+      inputEle.dispatchEvent(event)
+      expect(callback).to.have.been.called
+    })
+    it('支持 blur 事件', ()=>{
+      vm = new Constructor({}).$mount()
+      const callback = sinon.fake()
+      vm.$on('blur', callback)
+      let event = new Event('blur')
+      let inputEle = vm.$el.querySelector('input')
+      inputEle.dispatchEvent(event)
+      expect(callback).to.have.been.called
     })
   })
 })
