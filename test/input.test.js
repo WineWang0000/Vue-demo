@@ -9,42 +9,42 @@ describe('Input', () => {
   it('存在.', () => {
     expect(Input).to.exist
   })
-  describe('props', ()=>{
+  describe('props', () => {
     const Constructor = Vue.extend(Input)
     let vm
-    afterEach(()=>{
+    afterEach(() => {
       vm.$destroy()
     })
-    it('接收 value',() =>{
+    it('接收 value', () => {
       vm = new Constructor({
-        propsData:{
+        propsData: {
           value: '123'
         }
       }).$mount()
       const inputEle = vm.$el.querySelector('input')
       expect(inputEle.value).to.eq('123')
     })
-    it('接收 disabled',() =>{
+    it('接收 disabled', () => {
       const vm = new Constructor({
-        propsData:{
+        propsData: {
           disabled: true
         }
       }).$mount()
       const inputEle = vm.$el.querySelector('input')
       expect(inputEle.disabled).to.eq(true)
     })
-    it('接收 readonly',() =>{
+    it('接收 readonly', () => {
       vm = new Constructor({
-        propsData:{
+        propsData: {
           readonly: true
         }
       }).$mount()
       const inputEle = vm.$el.querySelector('input')
       expect(inputEle.readOnly).to.eq(true)
     })
-    it('接收 error', ()=>{
+    it('接收 error', () => {
       vm = new Constructor({
-        propsData:{
+        propsData: {
           error: '你错了'
         }
       }).$mount()
@@ -54,48 +54,23 @@ describe('Input', () => {
       expect(errorMessage.innerText).to.eq('你错了')
     })
   })
-  describe('事件', ()=>{
+  describe('事件', () => {
     const Constructor = Vue.extend(Input)
     let vm
-    afterEach(()=>{
+    afterEach(() => {
       vm.$destroy()
     })
-    it('支持 change 事件', ()=>{
-      vm = new Constructor({}).$mount()
+    it('支持 change/input/focus/blur 事件', () => {
+      ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
+        vm = new Constructor({}).$mount()
         const callback = sinon.fake()
-        vm.$on('change', callback)
-        let event = new Event('change')
+        vm.$on(eventName, callback)
+        let event = new Event(eventName)
         let inputEle = vm.$el.querySelector('input')
         inputEle.dispatchEvent(event)
         expect(callback).to.have.been.called
         // expect(callback).to.have.been.callWith(event) 测change事件的第一次个传参数。
-    })
-    it('支持 input 事件', ()=>{
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('input', callback)
-      let event = new Event('input')
-      let inputEle = vm.$el.querySelector('input')
-      inputEle.dispatchEvent(event)
-      expect(callback).to.have.been.called
-    })
-    it('支持 focus 事件', ()=>{
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('focus', callback)
-      let event = new Event('focus')
-      let inputEle = vm.$el.querySelector('input')
-      inputEle.dispatchEvent(event)
-      expect(callback).to.have.been.called
-    })
-    it('支持 blur 事件', ()=>{
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('blur', callback)
-      let event = new Event('blur')
-      let inputEle = vm.$el.querySelector('input')
-      inputEle.dispatchEvent(event)
-      expect(callback).to.have.been.called
+      })
     })
   })
 })
