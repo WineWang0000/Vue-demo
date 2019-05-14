@@ -26,9 +26,7 @@
       },
       phone:{type: Object,validator},
       ipad:{type:Object, validator,},
-      narrowPc:{type:Object, validator,},
       pc:{type:Object, validator,},
-      widePc:{type:Object, validator,}
     },
      data(){
       return {
@@ -45,13 +43,18 @@
       colClass(){
         let {span, offset, phone, ipad, narrowPc, pc, widePc} = this
         let phoneClass= []
+        let ipadClass = []
         if(phone){
           phoneClass = [`col-phone-${phone.span}`]
+        }
+        if(ipad){
+          ipadClass = [`col-ipad-${ipad.span}`]
         }
         return [
           span && `col-${span}`,
           offset && `offset-${offset}`,
-          ... phoneClass
+          ... phoneClass,
+          ... ipadClass,
         ]
       },
     }
@@ -86,5 +89,19 @@
       }
     }
   }
+    @media(min-width:578px) and (max-width:778px){
+      $class: col-ipad-;
+      @for $n from 1 through 24{
+        &.#{$class}#{$n}{
+          width: ($n / 24) * 100%;
+        }
+      }
+      $class: offset-ipad-;
+      @for $n from 1 through 24{
+        &.#{$class}#{$n}{
+          margin-left: ($n / 24) * 100%;
+        }
+      }
+    }
   }
 </style>
