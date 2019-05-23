@@ -1,13 +1,25 @@
 <template>
-  <div class="collapse">
-    <slot></slot>
+  <div class="collapseItem">
+    <div class="title" @click="open=!open">
+      {{title}}
+    </div>
+    <div class="content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
   export default{
-    name: "GuluCollapse"
+    props:{
+      title:{
+        type: String,
+        required: true
+      }
+    },
+    data:{
+      open: false
+    }
   }
-  console.log(2);
 </script>
 <style lang="scss" scoped>
   $color: #ddd;

@@ -1,27 +1,13 @@
 <template>
   <div class="collapseItem">
-    <div class="title" @click="open=!open">
-      {{title}}
-    </div>
-    <div class="content">
       <slot></slot>
-    </div>
   </div>
 </template>
 
 <script>
   export default{
-   props:{
-     title:{
-       type: String,
-       required: true
-     }
-   },
-    data:{
-     open: false
-    }
+
   }
-  console.log(1);
 </script>
 
 <style lang="scss">
