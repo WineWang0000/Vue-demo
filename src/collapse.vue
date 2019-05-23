@@ -1,25 +1,14 @@
 <template>
-  <div class="collapseItem">
-    <div class="title" @click="open=!open">
-      {{title}}
-    </div>
-    <div class="content">
-      <slot></slot>
-    </div>
+  <div class="collapse">
+    <slot></slot>
   </div>
 </template>
 <script>
+  import Vue from 'vue'
   export default{
-    props:{
-      title:{
-        type: String,
-        required: true
-      }
-    },
-    data:{
-      open: false
-    }
+    name: "GuluCollapse",
   }
+  console.log(2);
 </script>
 <style lang="scss" scoped>
   $color: #ddd;
@@ -27,6 +16,5 @@
   .collapse{
     border: 1px solid $color;
     border-radius: $border-radius;
-    display: block;
   }
 </style>
