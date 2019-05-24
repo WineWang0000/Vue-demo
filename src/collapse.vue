@@ -16,6 +16,9 @@
       single:{
         type: Boolean,
         default: false
+      },
+      selected:{
+        type: String
       }
     },
     provide(){
@@ -24,9 +27,14 @@
           eventBus: this.eventBus
         }
       }
+    },
+    mounted(){
+      this.eventBus.$emit('update: selected', this.selected)
+      this.$on('update: selected',(name)=>{
+        this.$emit('update: selected', name)
+      })
     }
   }
-  console.log(2);
 </script>
 <style lang="scss" scoped>
   $color: #ddd;

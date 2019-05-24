@@ -36,10 +36,7 @@ Vue.component('g-collapse-item', CollapseItem)
 new Vue({
   el:'#app',
   data:{
-    loading1: false,
-    loading2: false,
-    loading3: false,
-    message: '520'
+    selectedTab: '2'
   },
   created(){
 
